@@ -45,6 +45,7 @@
 
 @synthesize delegate = _delegate, URL = _URL, image = _image, defaultImage = _defaultImage,
   autoresizesToImage = _autoresizesToImage;
+@synthesize preserveAspectFillFrame = _preserveAspectFillFrame;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // private
@@ -72,6 +73,7 @@
     _image = nil;
     _defaultImage = nil;
     _autoresizesToImage = NO;
+    _preserveAspectFillFrame = NO;
   }
   return self;
 }
@@ -202,6 +204,23 @@
     CGRect frame = self.frame;
     if (_autoresizesToImage) {
       self.frame = CGRectMake(frame.origin.x, frame.origin.y, image.size.width, image.size.height);
+    } else if(_preserveAspectFillFrame) {
+      // scale based on width
+       CGFloat aspect_frame = frame.size.height / frame.size.width;
+       CGFloat aspect_image = image.size.height / image.size.width;
+       if(aspect_image > aspect_frame) {
+          // controlling dimension is height
+           CGFloat final_width = frame.size.width / aspect_image;
+           CGFloat offset = (frame.size.width - final_width) / 2;
+          self.frame = CGRectMake(frame.origin.x + floor(offset), frame.origin.y,
+            floor(final_width), frame.size.height);
+       } else {
+          // controlling dimension is width
+           CGFloat final_height = frame.size.height * aspect_image;
+           CGFloat offset = (frame.size.height - final_height) / 2;
+          self.frame = CGRectMake(frame.origin.x, frame.origin.y + floor(offset),
+             frame.size.width, floor(final_height));
+       }
     } else {
       if (!frame.size.width && !frame.size.height) {
         self.frame = CGRectMake(frame.origin.x, frame.origin.y, image.size.width, image.size.height);

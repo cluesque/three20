@@ -10,6 +10,7 @@
   UIImage* _image;
   UIImage* _defaultImage;
   BOOL _autoresizesToImage;
+  BOOL _preserveAspectFillFrame;
 }
 
 @property(nonatomic,assign) id<TTImageViewDelegate> delegate;
@@ -17,6 +18,7 @@
 @property(nonatomic,retain) UIImage* image;
 @property(nonatomic,retain) UIImage* defaultImage;
 @property(nonatomic) BOOL autoresizesToImage;
+@property(nonatomic) BOOL preserveAspectFillFrame;
 @property(nonatomic,readonly) BOOL isLoading;
 @property(nonatomic,readonly) BOOL isLoaded;
 
