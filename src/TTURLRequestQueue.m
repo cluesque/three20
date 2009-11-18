@@ -82,8 +82,31 @@ static TTURLRequestQueue* gMainQueue = nil;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)deliverDataResponse:(NSURL*)URL {
+    // http://tools.ietf.org/html/rfc2397
+    NSArray * dataSplit = [[URL resourceSpecifier] componentsSeparatedByString:@","];
+    if([dataSplit count]!=2) {
+        TTLOG(@"UNRECOGNIZED data: URL %@", self.URL);
+        return;
+    }
+    if([[dataSplit objectAtIndex:0] rangeOfString:@"base64"].location != NSNotFound) {
+        _responseData   = [[NSData dataWithBase64EncodedString:[dataSplit objectAtIndex:1]] retain];
+    } else {
+          //! To be really conformant need to interpret %xx hex encoded entities.  Skip for now.
+        _responseData   = [[[dataSplit objectAtIndex:1] dataUsingEncoding:NSASCIIStringEncoding] retain];
+    }
+
+    [_queue performSelector:@selector(loader:didLoadResponse:data:) withObject:self
+        withObject:_response withObject:_responseData];
+}
 
 - (void)connectToURL:(NSURL*)URL {
+  // If this is a data: url, we can decode right here ... after a delay to get out of calling thread
+  if([[URL scheme] isEqualToString:@"data"]) {
+      [self performSelector:@selector(deliverDataResponse:) withObject:URL afterDelay:0.1];
+      return;
+  }
+
   TTLOG(@"Connecting to %@", _URL);
   TTNetworkRequestStarted();
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9FEB5BA10B3BB6500B6107A /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB5B910B3BB6500B6107A /* NSDataAdditions.m */; };
+		A9FEB5BC10B3BB7200B6107A /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A9FEB5BB10B3BB7200B6107A /* NSDataAdditions.h */; };
 		BE1288060F896A0A00F65EA2 /* TTStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = BE1288050F896A0A00F65EA2 /* TTStyle.h */; };
 		BE1288080F896A1900F65EA2 /* TTStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288070F896A1900F65EA2 /* TTStyle.m */; };
 		BE1288CB0F89812E00F65EA2 /* TTShape.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288CA0F89812E00F65EA2 /* TTShape.m */; };
@@ -202,6 +204,8 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9FEB5B910B3BB6500B6107A /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		A9FEB5BB10B3BB7200B6107A /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Three20/NSDataAdditions.h; sourceTree = "<group>"; };
 		BE1288050F896A0A00F65EA2 /* TTStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyle.h; path = Three20/TTStyle.h; sourceTree = "<group>"; };
 		BE1288070F896A1900F65EA2 /* TTStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyle.m; sourceTree = "<group>"; };
 		BE1288CA0F89812E00F65EA2 /* TTShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTShape.m; sourceTree = "<group>"; };
@@ -499,6 +503,8 @@
 				BEAF211B0F4D329600D75F3B /* NSObjectAdditions.m */,
 				BEB210D30FA3E784007DEE5F /* NSStringAdditions.h */,
 				BEB210D10FA3E77E007DEE5F /* NSStringAdditions.m */,
+				A9FEB5BB10B3BB7200B6107A /* NSDataAdditions.h */,
+				A9FEB5B910B3BB6500B6107A /* NSDataAdditions.m */,
 				BEA7624F0FBA1E290091B567 /* NSDateAdditions.h */,
 				BEA7624D0FBA1E220091B567 /* NSDateAdditions.m */,
 				BED623910F50F34B003EF242 /* NSArrayAdditions.h */,
@@ -897,6 +903,7 @@
 				C618DB9310A53F6F00C78A93 /* P31RefreshTableHeaderView.h in Headers */,
 				C6F8A31710A753C00091E086 /* P31DragRefreshTableViewDelegate.h in Headers */,
 				C68E55B710AF5C2500621E32 /* P31GradientView.h in Headers */,
+				A9FEB5BC10B3BB7200B6107A /* NSDataAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1040,7 @@
 				C618DB9410A53F6F00C78A93 /* P31RefreshTableHeaderView.m in Sources */,
 				C6F8A31810A753C00091E086 /* P31DragRefreshTableViewDelegate.m in Sources */,
 				C68E55B810AF5C2500621E32 /* P31GradientView.m in Sources */,
+				A9FEB5BA10B3BB6500B6107A /* NSDataAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
